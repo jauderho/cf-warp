@@ -1,5 +1,5 @@
 #FROM node:14-alpine3.14 AS build
-FROM node:18-alpine3.15@sha256:505bb54d5a7380b805d68db9822dd20844c0d348f4f96ccc57e1a240cba57236 AS build
+FROM node:18-alpine3.15@sha256:469ee26d9e00547ea91202a34ff2542f984c2c60a2edbb4007558ccb76b56df2 AS build
 
 WORKDIR /app
 COPY package.json .
