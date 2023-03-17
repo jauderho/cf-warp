@@ -1,5 +1,5 @@
 #FROM node:14-alpine3.14 AS build
-FROM node:19-alpine3.16@sha256:41ef4e42ac20476e71cd49a661d34282eaa40937cadac24da951d986b7544ca3 AS build
+FROM node:19-alpine3.16@sha256:dda50fd533b57096bfb959afa8bfd290dc3c127207907177b578d44ee14d7119 AS build
 
 WORKDIR /app
 COPY package.json .
@@ -9,7 +9,7 @@ COPY . .
 # ----------------------------------------------------------------------------
 
 #FROM gcr.io/distroless/nodejs:14
-FROM node:19-alpine3.16@sha256:41ef4e42ac20476e71cd49a661d34282eaa40937cadac24da951d986b7544ca3
+FROM node:19-alpine3.16@sha256:dda50fd533b57096bfb959afa8bfd290dc3c127207907177b578d44ee14d7119
 
 WORKDIR /app
 COPY --from=build /app .
