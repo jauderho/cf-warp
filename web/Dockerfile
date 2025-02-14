@@ -1,4 +1,4 @@
-FROM node:23.7.0-alpine3.20@sha256:3ac002b133fd3737c44b66f0d023f5d75c7a1ddec71954fa06486aed6aead888 AS build
+FROM node:23.8.0-alpine3.20@sha256:3a6c6fbb9de9917f9f0bd6335fbb9427d1688a656643155f5dcdc7df91923816 AS build
 
 WORKDIR /app
 COPY package.json .
@@ -7,7 +7,7 @@ COPY . .
 
 # ----------------------------------------------------------------------------
 
-FROM node:23.7.0-alpine3.20@sha256:3ac002b133fd3737c44b66f0d023f5d75c7a1ddec71954fa06486aed6aead888
+FROM node:23.8.0-alpine3.20@sha256:3a6c6fbb9de9917f9f0bd6335fbb9427d1688a656643155f5dcdc7df91923816
 
 WORKDIR /app
 COPY --from=build /app .
