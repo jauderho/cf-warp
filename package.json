@@ -1,6 +1,6 @@
 {
 	"name": "cf-warp",
-	"version": "1.4.7",
+	"version": "1.4.10",
 	"main": "index.js",
 	"license": "MIT",
 	"bin": {
