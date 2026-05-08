@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"license": "MIT",
 	"dependencies": {
-		"cf-warp": "^1.4.0",
+		"cf-warp": "^1.4.11",
 		"express": "^5.2.1"
 	}
 }
