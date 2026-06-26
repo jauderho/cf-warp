@@ -22,26 +22,24 @@ jobs:
             - name: Source checkout
               uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
 
-            - name: Setup node
-              uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+            - name: Setup bun
+              uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
               with:
-                  node-version: 16
-                  cache: 'yarn'
+                  bun-version: latest
 
             - name: Check version
-              run: yarn --version
+              run: bun --version
 
             - name: Install deps
-              run: yarn
+              run: bun install --frozen-lockfile
 
-            - name: Install pkg
-              run: yarn add pkg
-
-            - name: Check outdated
-              run: yarn outdated
-
-            - name: Build binary
-              run: yarn pkg .
+            - name: Build binaries
+              run: |
+                  for target in linux-x64 linux-arm64 darwin-x64 darwin-arm64 windows-x64; do
+                      out="cf-warp-${target}"
+                      [ "$target" = "windows-x64" ] && out="${out}.exe"
+                      bun build cli.js --compile --minify --target="bun-${target}" --outfile "$out"
+                  done
 
             - name: Upload the artifacts
               uses: skx/github-action-publish-binaries@b9ca5643b2f1d7371a6cba7f35333f1461bbc703 # release-2.0

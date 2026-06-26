@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-const path = require('path')
-const os = require('os')
-const fs = require('fs-extra')
+const path = require('node:path')
+const os = require('node:os')
+const fs = require('node:fs')
+const fsp = require('node:fs/promises')
 const generate = require('./lib/generate')
 const register = require('./lib/register')
 const info = require('./lib/info')
@@ -13,14 +14,16 @@ const license = require('./lib/license')
 const args = process.argv.slice(2)
 const HOME = os.homedir()
 const CONFIG_DIR = path.join(HOME, '.cf-warp')
-if (!fs.existsSync(CONFIG_DIR)) {
-	fs.mkdirSync(CONFIG_DIR)
-}
+fs.mkdirSync(CONFIG_DIR, { recursive: true })
 
 const resovle = file => path.join(CONFIG_DIR, file)
-const exists = file => fs.exists(resovle(file))
-const read = file => fs.readFile(resovle(file), 'utf-8')
-const write = (file, content) => fs.writeFile(resovle(file), content, 'utf-8')
+const exists = file =>
+	fsp.access(resovle(file)).then(
+		() => true,
+		() => false
+	)
+const read = file => fsp.readFile(resovle(file), 'utf-8')
+const write = (file, content) => fsp.writeFile(resovle(file), content, 'utf-8')
 function sleep(ms) {
 	return new Promise(resolve => {
 		setTimeout(resolve, ms)

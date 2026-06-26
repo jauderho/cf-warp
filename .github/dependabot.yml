@@ -8,14 +8,14 @@ updates:
     schedule:
       interval: "daily"
 
-  # Maintain dependencies for NPM
-  - package-ecosystem: "npm"
+  # Maintain dependencies for Bun
+  - package-ecosystem: "bun"
     directory: "/"
     schedule:
       interval: "daily"
 
-  # Maintain dependencies for NPM
-  - package-ecosystem: "npm"
+  # Maintain dependencies for Bun
+  - package-ecosystem: "bun"
     directory: "/web"
     schedule:
       interval: "daily"

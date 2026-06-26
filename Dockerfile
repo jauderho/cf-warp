@@ -1,16 +1,15 @@
-FROM node:26.4.0-alpine3.24@sha256:725aeba2364a9b16beae49e180d83bd597dbd0b15c47f1f28875c290bfd255b9 AS build
+FROM oven/bun:1-alpine@sha256:5acc90a93e91ff07bf72aa90a7c9f0fa189765aec90b47bdbf2152d2196383c0 AS build
 
 WORKDIR /app
-COPY package.json .
-RUN yarn
+COPY package.json bun.lock ./
+RUN bun install --frozen-lockfile --production
 COPY . .
 
 # ----------------------------------------------------------------------------
 
-FROM node:26.4.0-alpine3.24@sha256:725aeba2364a9b16beae49e180d83bd597dbd0b15c47f1f28875c290bfd255b9
+FROM oven/bun:1-alpine@sha256:5acc90a93e91ff07bf72aa90a7c9f0fa189765aec90b47bdbf2152d2196383c0
 
 WORKDIR /app
 COPY --from=build /app .
 
-#ENTRYPOINT ["/nodejs/bin/node", "cli.js"]
-ENTRYPOINT ["node", "cli.js"]
+ENTRYPOINT ["bun", "cli.js"]
