@@ -1,6 +1,6 @@
 {
 	"name": "cf-warp",
-	"version": "1.4.11",
+	"version": "1.4.12",
 	"description": "A simple CLI to get Warp+ as a WireGuard configuration",
 	"type": "commonjs",
 	"license": "MIT",
