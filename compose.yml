@@ -1,8 +1,16 @@
-
 services:
     cf-warp:
-        build: .         
+        build: .
         #container_name: cf-warp
         #image: maple3142/cf-warp:latest
         volumes:
             - './config:/root/.cf-warp'
+
+    # Web service consumes the local cf-warp fork via the bun workspace, so it
+    # builds from the repo root context with the web Dockerfile.
+    cf-warp-web:
+        build:
+            context: .
+            dockerfile: web/Dockerfile
+        ports:
+            - '8080:8080'

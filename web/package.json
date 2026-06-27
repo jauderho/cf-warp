@@ -6,7 +6,7 @@
 	"type": "commonjs",
 	"license": "MIT",
 	"dependencies": {
-		"cf-warp": "^1.4.0",
+		"cf-warp": "file:..",
 		"express": "^5.2.1"
 	},
 	"overrides": {

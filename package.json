@@ -19,6 +19,9 @@
 		"cli.js",
 		"lib"
 	],
+	"workspaces": [
+		"web"
+	],
 	"dependencies": {
 		"tweetnacl": "^1.0.3"
 	}
