@@ -1,10 +1,15 @@
 {
 	"name": "cf-warpweb",
 	"version": "1.0.0",
+	"description": "Web service that serves a Warp+ WireGuard configuration",
 	"main": "index.js",
+	"type": "commonjs",
 	"license": "MIT",
 	"dependencies": {
 		"cf-warp": "^1.4.0",
 		"express": "^5.2.1"
+	},
+	"overrides": {
+		"qs": "^6.15.2"
 	}
 }

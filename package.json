@@ -1,11 +1,24 @@
 {
 	"name": "cf-warp",
 	"version": "1.4.11",
-	"main": "index.js",
+	"description": "A simple CLI to get Warp+ as a WireGuard configuration",
+	"type": "commonjs",
 	"license": "MIT",
 	"bin": {
 		"cf-warp": "cli.js"
 	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/jauderho/cf-warp.git"
+	},
+	"engines": {
+		"bun": ">=1.0.0",
+		"node": ">=18"
+	},
+	"files": [
+		"cli.js",
+		"lib"
+	],
 	"dependencies": {
 		"tweetnacl": "^1.0.3"
 	}
