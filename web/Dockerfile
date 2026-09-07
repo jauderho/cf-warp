@@ -1,7 +1,7 @@
 # Build context MUST be the repository root (the web app depends on the
 # local cf-warp fork via "file:.."), e.g.:
 #   docker build -f web/Dockerfile -t cf-warpweb .
-FROM oven/bun:1-alpine@sha256:07235578f79ef8c6f97d94aee7938e76f5cdba5f21ae5dbfdd3d3d38058437eb AS build
+FROM oven/bun:1-alpine@sha256:d888c0ae6c86d7866ff10c5aafdd9077b36aee6455b33dd270fb93c0dd5cef6f AS build
 
 WORKDIR /app
 # Workspace manifests + single lockfile (root package + web member)
@@ -16,7 +16,7 @@ COPY web/index.js ./web/
 
 # ----------------------------------------------------------------------------
 
-FROM oven/bun:1-alpine@sha256:07235578f79ef8c6f97d94aee7938e76f5cdba5f21ae5dbfdd3d3d38058437eb
+FROM oven/bun:1-alpine@sha256:d888c0ae6c86d7866ff10c5aafdd9077b36aee6455b33dd270fb93c0dd5cef6f
 
 WORKDIR /app
 COPY --from=build /app .
