@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"dependencies": {
 		"cf-warp": "file:..",
-		"express": "^5.2.1"
+		"express": "^5.3.0"
 	},
 	"overrides": {
 		"qs": "^6.15.2"
